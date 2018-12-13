@@ -11,15 +11,25 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.postgresql
+  #database: db/development.postgresql
+  database: postgres
+  enocding: UTF8
+  username: postgres
+  password: <%= ENV["postgres_password"] %>
+  host: 127.0.0.1
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.postgresql
+  #database: db/test.postgresql
+  database: postgres
+  host: 127.0.0.1
+
 
 production:
   <<: *default
-  database: db/production.postgresql
+  #database: db/production.postgresql
+  database: postgres
